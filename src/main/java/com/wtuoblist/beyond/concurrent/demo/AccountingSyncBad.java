@@ -3,9 +3,9 @@ package com.wtuoblist.beyond.concurrent.demo;
 /**
  * @author zhangfb
  */
-public class AccountingSync implements Runnable {
+public class AccountingSyncBad implements Runnable {
 
-    static AccountingSync instance = new AccountingSync();
+    static AccountingSyncBad instance = new AccountingSyncBad();
     static volatile int i = 0;
 
     public synchronized void increase() {
@@ -19,8 +19,8 @@ public class AccountingSync implements Runnable {
     }
 
     public static void main(String[] args) throws Exception {
-        Thread t1 = new Thread(instance);
-        Thread t2 = new Thread(instance);
+        Thread t1 = new Thread(new AccountingSyncBad());
+        Thread t2 = new Thread(new AccountingSyncBad());
         t1.start();
         t2.start();
         t1.join();
