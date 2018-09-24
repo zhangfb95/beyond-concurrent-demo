@@ -62,8 +62,8 @@ public class AtomicStampedReferenceDemo {
     }
 
     public static void main(String[] args) {
-        new AtomicStampedReferenceDemo().consume();
         new AtomicStampedReferenceDemo().add();
+        new AtomicStampedReferenceDemo().consume();
     }
 
 }
